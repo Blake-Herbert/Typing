@@ -9,18 +9,20 @@ namespace Lumberjack_Typing_Adventure
 {
 	public class Menu
 	{
-		public string prompt;
-		public string[] options;
+		public string Prompt { get; set; }
+		public string[] Options { get; set; }
 
 		public void DisplayOptions()
 		{
-			WriteLine(prompt);
-			for (int i = 0; i < options.Length; i++)
+			WriteLine(Prompt);
+			for (int i = 0; i < Options.Length; i++)
 			{
-				string currentOption = options[i];
+				string currentOption = Options[i];
 				WriteLine(currentOption);
 			}
 
 		}
+
+
 	}
 }

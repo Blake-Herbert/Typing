@@ -1,38 +1,50 @@
-﻿using Lumberjack_Typing_Adventure;
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using Lumberjack_Typing_Adventure;
 using static System.Console;
 
-MainMenu();
-ConsoleKeyInfo selection = ReadKey();
+MainMenu Menu = new MainMenu();
+Menu.Start();
 
 
 
-if (selection.Key == ConsoleKey.F)
+
+
+
+
+public class MainMenu : Menu
 {
-	Clear();
-	WriteLine("Keep practicing!");
-	ReadKey();
+	public void Start()
+	{
+		string[] mainMenuOptions = { "F. New Game", "J. Info", "Space . Exit" };
+		Menu MainMenu = new Menu();
+		MainMenu.Options = mainMenuOptions;
+		MainMenu.Prompt = "Lumberjack ";
+		MainMenu.DisplayOptions();
+
+
+		ConsoleKeyInfo selection = ReadKey();
+
+		if (selection.Key == ConsoleKey.F)
+		{
+			Game game = new Game();
+			game.Run();
+			
+
+		}
+		else if (selection.Key == ConsoleKey.J)
+		{
+			Clear();
+			WriteLine("\nHere's some information");
+			ReadKey();
+		}
+		else if (selection.Key == ConsoleKey.Spacebar)
+		{
+			Clear();
+			WriteLine("Goodbye!");
+			Environment.Exit(0);
+		}
+	}
 }
-else if (selection.Key == ConsoleKey.J)
-{
-	Clear();
-	WriteLine("\nHere's some information");
-	ReadKey();
-}
-else if (selection.Key == ConsoleKey.Spacebar)
-{
-	WriteLine("Goodbye!");
-	Environment.Exit(0);
-}
 
 
-
-
-
-void MainMenu()
-{
-	string[] mainMenuOptions = { "F. New Game", "J. Info", "Space . Exit" };
-	Menu MainMenu = new Menu();
-	MainMenu.options = mainMenuOptions;
-	MainMenu.prompt = "Lumberjack ";
-	MainMenu.DisplayOptions();
-}
