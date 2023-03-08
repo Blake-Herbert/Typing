@@ -12,23 +12,22 @@ namespace Lumberjack_Typing_Adventure
 	{
 		public void Start()
 		{
-			Clear();
-			Prompt prompt = new Prompt();
-			string currentPrompt = prompt.RandomSingleWord();
-			WriteLine(currentPrompt);
 			int score = 0;
-			if (currentPrompt == ReadLine())
+			int rounds = 5;
+			for (int i = 0; i < rounds; i++)
 			{
 				Clear();
-				score++;
-				Console.WriteLine("+1");
-
+				Prompt prompt = new Prompt();
+				string currentPrompt = prompt.RandomSingleWord();
+				WriteLine(currentPrompt);
+				
+				if (currentPrompt == ReadLine()) {score++; }
 			}
-			else
-			{ Console.WriteLine(" Try Again"); }
+			
 
-			WriteLine(score);
-			ReadLine();
+			WriteLine($"You scored ({score} / {rounds})");
+			WriteLine("Press any key to return to the main menu");
+			ReadKey();
 			MainMenu mainmenu = new MainMenu();
 			mainmenu.Start();
 		}

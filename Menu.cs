@@ -67,7 +67,7 @@ namespace Lumberjack_Typing_Adventure
 		{
 			Menu informationMenu = new Menu();
 			informationMenu.Prompt = "Here's some information ";
-			string[] menuOptions = { "press any key to return to main menu" };
+			string[] menuOptions = { "Press any key to return to main menu" };
 			informationMenu.Options = menuOptions;
 			informationMenu.DisplayOptions();
 
